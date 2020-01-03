@@ -44,10 +44,18 @@ Run project in local
 > npm run serve
 ```
 
+## Running the tests
+```
+> node_modules\.bin\cypress open
+```
+
+
+
 ## Built With
 
 * https://github.com/vuetifyjs/vuetify -  Vuejs framework.
 * https://github.com/vuejs/vuex - Centralized State Management for Vue.js.
+* https://www.cypress.io/ - Tests framework for javascript web app.
 
 ## Authors
 
