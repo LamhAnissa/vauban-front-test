@@ -6,9 +6,17 @@
       <v-spacer/>
     </v-layout>
     <v-divider class="mb-4"/>
-
-    <v-layout row wrap v-if="characters.length !== 0">
-      <v-flex v-for="(character,index) in characters" :key="index" xs12 sm6 md4 lg3>
+ <v-row cols="12" sm="6" md="3">
+       <v-text-field
+            v-model="search"
+            label="Solo"
+            placeholder="Search"
+            append-icon="search"
+            solo
+        ></v-text-field>
+    </v-row>
+    <v-layout row wrap v-if="filteredCharacters.length !== 0">
+      <v-flex v-for="(character,index) in filteredCharacters" :key="index" xs12 sm6 md4 lg3>
     <v-hover>
         <v-card hover class="pointer">
           <v-card-title> 
@@ -39,6 +47,7 @@ export default{
  data() {
     return {
        characters: characters,
+       search:'' ,
     };
   },
 
