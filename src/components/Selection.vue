@@ -24,7 +24,7 @@
   
           <v-list-item-action>
             <v-btn icon>
-              <v-icon color="red lighten-1">mdi-delete</v-icon>
+              <v-icon v-on:click="removeFromMySelection(characterName)" color="red lighten-1">mdi-delete</v-icon>
             </v-btn>
           </v-list-item-action>
         </v-list-item>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters} from 'vuex'
+import { mapActions,mapGetters} from 'vuex'
 export default{
 
     data() {
@@ -44,7 +44,11 @@ export default{
     };
   },
 
-  methods:{},
+  methods:
+       mapActions([
+        'removeFromMySelection',
+  ]),
+  
   
 computed:
     mapGetters({
