@@ -1,9 +1,8 @@
 <template>
   <v-app>
     <Header></Header>
-
     <v-content>
-      <HelloWorld/>
+      <CharactersShop></CharactersShop>
     </v-content>
      <Footer></Footer>
   </v-app>
@@ -11,7 +10,7 @@
 
 <script>
 import Header from './components/Header'
-import HelloWorld from './components/HelloWorld';
+import CharactersShop from './components/CharactersShop'
 import Footer from './components/Footer'
 
 
@@ -20,8 +19,9 @@ export default {
 
   components: {
     Header,
+    CharactersShop,
     Footer,
-    HelloWorld,
+
   },
 
   data: () => ({
