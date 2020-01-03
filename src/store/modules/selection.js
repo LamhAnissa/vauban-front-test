@@ -20,6 +20,10 @@ const state = {
     REMOVE_FROM_SELECTION (state, { character }) {
         state.mycharacters.splice(state.mycharacters.indexOf(character), 1)
     },
+
+    DELETE_SELECTION (state) {
+        state.mycharacters=[]
+      }
   }
   
   export default {
