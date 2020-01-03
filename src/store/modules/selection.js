@@ -13,7 +13,9 @@ const state = {
   
 
   const mutations = {
-
+    ADD_TO_SELECTION(state, { character }) {
+        state.mycharacters.push(character)
+      },
   }
   
   export default {

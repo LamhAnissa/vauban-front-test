@@ -39,7 +39,7 @@
               absolute
               color="grey"
             >
-              <v-btn color="green">Add to my selection</v-btn>
+              <v-btn v-on:click="addToMySelection(character.name)" color="green">Add to my selection</v-btn>
               <v-btn color="red">Already Added</v-btn>
             </v-overlay>
           </v-fade-transition>
@@ -66,6 +66,7 @@
    
 <script>
 import {characters} from '../data/characters'
+import { mapActions} from 'vuex'
 
 export default{
 
@@ -85,6 +86,10 @@ export default{
       mouseOutCard: function(){
           return  this.selectedIndexCard=-1;
       },
+
+     ...mapActions([
+          'addToMySelection',
+      ]),
 
   },
   computed:{
