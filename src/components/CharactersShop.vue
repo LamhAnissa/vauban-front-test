@@ -18,7 +18,8 @@
     <v-layout row wrap v-if="filteredCharacters.length !== 0">
       <v-flex v-for="(character,index) in filteredCharacters" :key="index" xs12 sm6 md4 lg3>
     <v-hover>
-        <v-card hover class="pointer">
+         <template v-slot:default="{ hover }">
+        <v-card hover class="pointer"  v-on:mouseenter="mouseOnCard(index)"  v-on:mouseleave="mouseOutCard()">
           <v-card-title> 
             <span class="textEllipsis headline" v-text="character.name"></span>
           </v-card-title>
@@ -31,7 +32,19 @@
               <span>Height: {{character.height}} </span><br>
               <span> Mass: {{character.mass}} </span><br> 
             </v-card-text>
+            <v-row>
+          <v-fade-transition>
+            <v-overlay
+              v-if="selectedIndexCard===index"
+              absolute
+              color="grey"
+            >
+              <v-btn color="black">Add to my selection</v-btn>
+            </v-overlay>
+          </v-fade-transition>
+           </v-row>
         </v-card>
+              </template>
             </v-hover>
       </v-flex> 
          </v-layout>
@@ -59,10 +72,18 @@ export default{
     return {
        characters: characters,
        search:'' ,
+       selectedIndexCard: '',
     };
   },
 
   methods:{
+     mouseOnCard: function(index){
+          return this.selectedIndexCard=index;
+      },
+
+      mouseOutCard: function(){
+          return  this.selectedIndexCard=-1;
+      },
   },
   computed:{
           filteredCharacters:function(){
