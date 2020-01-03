@@ -36,18 +36,20 @@
 </template>
 
 <script>
-
+import { mapGetters} from 'vuex'
 export default{
 
     data() {
     return {
-        myselection: []
-
     };
   },
 
   methods:{},
   
-computed:{}
+computed:
+    mapGetters({
+    myselection: 'mySelection'
+  }),
+
 }
 </script>
