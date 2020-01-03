@@ -35,6 +35,17 @@
             </v-hover>
       </v-flex> 
          </v-layout>
+         <v-layout v-else justify-center>
+      <v-card class="mt-4 pa-3">
+        <v-layout column justify-center align-center>
+
+          <v-flex class="pa-2" md8>
+            <v-btn :disabled="true">No Result 
+            </v-btn>
+          </v-flex>
+        </v-layout>
+      </v-card>
+    </v-layout>
           </v-container>
   </v-container>
 </template>
