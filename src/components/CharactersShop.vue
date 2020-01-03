@@ -39,7 +39,8 @@
               absolute
               color="grey"
             >
-              <v-btn color="black">Add to my selection</v-btn>
+              <v-btn color="green">Add to my selection</v-btn>
+              <v-btn color="red">Already Added</v-btn>
             </v-overlay>
           </v-fade-transition>
            </v-row>
@@ -84,6 +85,7 @@ export default{
       mouseOutCard: function(){
           return  this.selectedIndexCard=-1;
       },
+
   },
   computed:{
           filteredCharacters:function(){
