@@ -39,8 +39,8 @@
               absolute
               color="grey"
             >
-              <v-btn v-on:click="addToMySelection(character.name)" color="green">Add to my selection</v-btn>
-              <v-btn color="red">Already Added</v-btn>
+              <v-btn v-if="!isAlreadyAdded(character.name)" v-on:click="addToMySelection(character.name)" color="green">Add to my selection</v-btn>
+              <v-btn v-else color="red">Already Added</v-btn>
             </v-overlay>
           </v-fade-transition>
            </v-row>
@@ -66,7 +66,7 @@
    
 <script>
 import {characters} from '../data/characters'
-import { mapActions} from 'vuex'
+import { mapActions, mapGetters} from 'vuex'
 
 export default{
 
@@ -91,15 +91,24 @@ export default{
           'addToMySelection',
       ]),
 
+    isAlreadyAdded: function(name){
+        let res=this.currentSelection.filter((chName)=>{ 
+             return chName.match(name)
+        })
+     return res.length>0
+      }
+
   },
   computed:{
-          filteredCharacters:function(){
+     filteredCharacters:function(){
         return this.characters.filter((character)=>{
             let characterName= character.name.toLowerCase();
             return characterName.match(this.search.toLowerCase())
         });
     },
-
+    ...mapGetters({
+        currentSelection: 'mySelection'
+    })
     },
   }
 
