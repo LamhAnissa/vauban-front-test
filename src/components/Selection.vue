@@ -3,7 +3,7 @@
   <v-container fluid grid-list-xl>
     <v-layout row align-content-end="true">
         <h2 class="grey--text">My Selection</h2>
-        <v-btn icon  v-on:click="deleteAllDialog=true">
+        <v-btn icon   v-if="myselection.length>0" v-on:click="deleteAllDialog=true">
               <v-icon color="black">mdi-delete-forever</v-icon>
             </v-btn>
                     <v-dialog
