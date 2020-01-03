@@ -45,6 +45,13 @@ export default{
   methods:{
   },
   computed:{
+          filteredCharacters:function(){
+        return this.characters.filter((character)=>{
+            let characterName= character.name.toLowerCase();
+            return characterName.match(this.search.toLowerCase())
+        });
+    },
+
     },
   }
 
