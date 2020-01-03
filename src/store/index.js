@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import selection from './modules/selection'
 
-Vue.use(Vuex) 
+Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 

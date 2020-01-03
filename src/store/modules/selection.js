@@ -1,34 +1,34 @@
 
 const state = {
     mycharacters: []
-  }
+}
 
-  const getters = {
+const getters = {
     mySelection: state => state.mycharacters
-  }
-  
+}
 
-  const actions = {
-  }
-  
 
-  const mutations = {
+const actions = {
+}
+
+
+const mutations = {
     ADD_TO_SELECTION(state, { character }) {
         state.mycharacters.push(character)
-      },
+    },
 
-    REMOVE_FROM_SELECTION (state, { character }) {
+    REMOVE_FROM_SELECTION(state, { character }) {
         state.mycharacters.splice(state.mycharacters.indexOf(character), 1)
     },
 
-    DELETE_SELECTION (state) {
-        state.mycharacters=[]
-      }
-  }
-  
-  export default {
+    DELETE_SELECTION(state) {
+        state.mycharacters = []
+    }
+}
+
+export default {
     state,
     getters,
     actions,
     mutations
-  }
+}
